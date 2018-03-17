@@ -1,0 +1,7 @@
+{
+  "port": 9000,
+  "token": "your Darwin UUID token",
+  "logDir": 'logs',
+  "privateKey": "/etc/letsencrypt/live/mywebapp/privkey.pem",
+  "certificate": "/etc/letsencrypt/live/mywebapp/fullchain.pem"
+}

@@ -1,11 +1,32 @@
 {
-  "name": "national-rail-web-proxy",
+  "name": "darwin-web-proxy",
   "version": "0.0.1",
   "description": "A JSON proxy for National Rail's SOAP API for client-side web apps, providing support for CORS and HTTPS.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel-node": "babel-node --presets=latest",
+    "start": "NODE_ENV=development nodemon --exec npm run babel-node -- ./index.js",
+    "start:prod": "NODE_ENV=production nodemon --exec npm run babel-node -- ./index.js",
+    "test": "./node_modules/.bin/eslint .",
+    "precommit": "yarn test"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "helmet": "^3.12.0",
+    "morgan": "^1.9.0",
+    "rotating-file-stream": "^1.3.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "nodemon": "^1.17.2"
+  }
 }
