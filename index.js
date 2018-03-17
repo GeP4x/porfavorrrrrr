@@ -1,17 +1,15 @@
 /* eslint-disable no-console */
-import bodyParser from 'body-parser'
-import cors from 'cors'
-import express from 'express'
-import fs from 'fs'
-import helmet from 'helmet'
-import morgan from 'morgan'
-import http from 'http'
-import https from 'https'
-import rfs from 'rotating-file-stream'
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const express = require('express')
+const fs = require('fs')
+const helmet = require('helmet')
+const morgan = require('morgan')
+const http = require('http')
+const https = require('https')
+const rfs = require('rotating-file-stream')
 
-import config from './config.json'
-
-console.log(`Starting in ${process.env.NODE_ENV} mode.`)
+const config = require('./config.json')
 
 const {
   port,
@@ -25,6 +23,8 @@ const accessLog = rfs('access.log', {
   path: logDir || `${__dirname}/logs/`
 })
 
+console.log(`Starting in ${process.env.NODE_ENV} mode.`)
+
 const app = express()
 
 app.use(bodyParser.json())
@@ -32,8 +32,20 @@ app.use(cors())
 app.use(helmet())
 app.use(morgan('combined', { stream: accessLog }))
 
+// require('./routes/getArrivalsBoard')(app)
+// require('./routes/getArrivalsBoardWithDetails')(app)
+// require('./routes/getArrivalsDepartureBoard')(app)
+// require('./routes/getArrivalsDepartureBoardWithDetails')(app)
+require('./routes/getDepartureBoard')(app)
+// require('./routes/getDepartureBoardWithDetails')(app)
+// require('./routes/getFastestDeparture')(app)
+// require('./routes/getFastestDepartureWithDetails')(app)
+// require('./routes/getNextDeparture')(app)
+// require('./routes/getNextDepartureWithDetails')(app)
+// require('./routes/getServiceDetails')(app)
+
 app.get('/status', (req, res) => {
-  res.status(200).json({ message: 'OK' })
+  res.send(200)
 })
 
 if (process.env.NODE_ENV === 'production') {
