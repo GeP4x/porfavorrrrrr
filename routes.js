@@ -1,7 +1,10 @@
 const NationalRailDarwin = require('national-rail-darwin')
 
+const validateToken = require('./lib/validateToken')
+const validateOptions = require('./lib/validateOptions')
+
 module.exports = (app) => {
-  app.post('/getArrivalsBoard/:crs', (req, res) => {
+  app.post('/getArrivalsBoard/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -14,7 +17,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getArrivalsBoardWithDetails/:crs', (req, res) => {
+  app.post('/getArrivalsBoardWithDetails/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -27,7 +30,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getArrivalsDepartureBoard/:crs', (req, res) => {
+  app.post('/getArrivalsDepartureBoard/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -40,7 +43,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getArrivalsDepartureBoardWithDetails/:crs', (req, res) => {
+  app.post('/getArrivalsDepartureBoardWithDetails/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -53,7 +56,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getDepartureBoard/:crs', (req, res) => {
+  app.post('/getDepartureBoard/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -66,7 +69,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getDepartureBoardWithDetails/:crs', (req, res) => {
+  app.post('/getDepartureBoardWithDetails/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -79,7 +82,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getFastestDeparture/:crs', (req, res) => {
+  app.post('/getFastestDeparture/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -92,7 +95,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getFastestDepartureWithDetails/:crs', (req, res) => {
+  app.post('/getFastestDepartureWithDetails/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -105,7 +108,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getNextDeparture/:crs', (req, res) => {
+  app.post('/getNextDeparture/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -118,7 +121,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getNextDepartureWithDetails/:crs', (req, res) => {
+  app.post('/getNextDepartureWithDetails/:crs', validateToken, validateOptions, (req, res) => {
     const { options, token } = req.body
     const { crs } = req.params
 
@@ -131,7 +134,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getServiceDetails/:service', (req, res) => {
+  app.post('/getServiceDetails/:service', validateToken, validateOptions, (req, res) => {
     const { token } = req.body
     const { service } = req.params
 
@@ -144,7 +147,7 @@ module.exports = (app) => {
     ))
   })
 
-  app.post('/getStationDetails/:query', (req, res) => {
+  app.post('/getStationDetails/:query', validateToken, validateOptions, (req, res) => {
     const { token } = req.body
     const { query } = req.params
 
