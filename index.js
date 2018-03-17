@@ -32,17 +32,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(morgan('combined', { stream: accessLog }))
 
-// require('./routes/getArrivalsBoard')(app)
-// require('./routes/getArrivalsBoardWithDetails')(app)
-// require('./routes/getArrivalsDepartureBoard')(app)
-// require('./routes/getArrivalsDepartureBoardWithDetails')(app)
-require('./routes/getDepartureBoard')(app)
-// require('./routes/getDepartureBoardWithDetails')(app)
-// require('./routes/getFastestDeparture')(app)
-// require('./routes/getFastestDepartureWithDetails')(app)
-// require('./routes/getNextDeparture')(app)
-// require('./routes/getNextDepartureWithDetails')(app)
-// require('./routes/getServiceDetails')(app)
+require('./routes')(app)
 
 app.get('/status', (req, res) => {
   res.send(200)
