@@ -27,9 +27,9 @@ console.log(`Starting in ${process.env.NODE_ENV} mode.`)
 
 const app = express()
 
-app.use(bodyParser.json())
-app.use(cors())
 app.use(helmet())
+app.use(cors())
+app.use(bodyParser.json())
 app.use(morgan('combined', { stream: accessLog }))
 
 // require('./routes/getArrivalsBoard')(app)
