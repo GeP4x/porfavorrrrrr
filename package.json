@@ -1,0 +1,11 @@
+{
+  "name": "national-rail-web-proxy",
+  "version": "0.0.1",
+  "description": "A JSON proxy for National Rail's SOAP API for client-side web apps, providing support for CORS and HTTPS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
